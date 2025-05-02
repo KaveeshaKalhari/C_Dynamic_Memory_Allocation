@@ -1,0 +1,21 @@
+name: Compile Each C File
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  compile-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile each C file individually
+        run: |
+          for file in *.c; do
+            echo "Compiling $file"
+            gcc -Wall -Werror -c "$file" -o "${file%.c}.o"
+          done
