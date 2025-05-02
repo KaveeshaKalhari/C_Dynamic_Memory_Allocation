@@ -3,6 +3,7 @@
 
 int main(){
     int n, sum = 0;
+//    abcd
 
     printf("Enter number of numbers:");
     scanf("%d", &n);
